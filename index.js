@@ -1,5 +1,7 @@
 // TODO: Include packages needed for this application
-const inquirer = require('inquirer')
+import fs from 'fs'
+import inquirer from 'inquirer'
+import generateMarkdown from './Develop/utils/generateMarkdown.js'
 // TODO: Create an array of questions for user input
 const questions = [
 {
@@ -41,7 +43,7 @@ const questions = [
 {
     type: 'input',
     name: 'Installation',
-    message: 'What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.'
+    message: 'What are the steps required to install your project?'
 },
 
 {
@@ -53,19 +55,19 @@ const questions = [
 {
     type: 'input',
     name: 'Credits',
-    message: 'List your collaborators, if any, with links to their GitHub profiles. If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section. If you followed tutorials, include links to those here as well'
+    message: 'List your collaborators, if any, with links to their GitHub profiles. If you used any third-party assets, list the creators with links to their primary web presence in this section. If you followed tutorials, include links to those here as well'
 },
 
 {
     type: 'input',
     name: 'License',
-    message: 'The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).'
+    message: 'The last section of a high-quality README file is the license. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).'
 },
 
 {
     type: 'input',
     name: 'Badges',
-    message: "Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time."
+    message: "Badges aren't necessary, per se, but they demonstrate street cred.Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time."
 },
 
 {
@@ -77,13 +79,7 @@ const questions = [
 {
     type: 'input',
     name: 'How to Contribue',
-    message: "If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer."
-},
-
-{
-    type: 'input',
-    name: '',
-    message: ''
+    message: "If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/)."
 },
 
 {
@@ -107,7 +103,13 @@ const questions = [
 function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions)
+    .then(function (userInput){
+        console.log(userInput)
+        writeToFile('README.md', generateMarkdown(userInput));
 
+    });
+};
 // Function call to initialize app
 init();

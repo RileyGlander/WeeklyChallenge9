@@ -17,4 +17,6 @@ function generateMarkdown(data) {
 `;
 }
 
-module.exports = generateMarkdown;
+
+export default generateMarkdown;
+//module.exports = generateMarkdown;
