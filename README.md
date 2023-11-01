@@ -4,7 +4,10 @@
 - What was your motivation? What motivated me was trying to build a tool that could build a README.md file for those who struggle to build one on their own. This is a tool that could really help me save time in the future, so building something that I could use in the future really motivated me.
 - Why did you build this project? This was a great way to work with node and to create a tool that anyone can use especially for those wo are tired of trying to make their own README.md file each time.
 - What problem does it solve? It solves the problem of trying to come up with questions to include in the README.md file with an easy and quick method.
-- What did you learn? 
+- What did you learn? During this challenge I was able to learn and understand node and how it works. An example would be getting the 'require()' method to work.
+
+## Video Tutorial 
+https://drive.google.com/file/d/1n3YmPmBV602UuTnbudjlfdxQ_4owhkUq/view?usp=sharing
 
 
 ## Installation
