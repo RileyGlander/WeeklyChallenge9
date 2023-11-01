@@ -86,38 +86,61 @@ const questions = [
     type: 'input',
     name: 'tests',
     message: 'Go the extra mile and write tests for your application. Then provide examples on how to run them here.'
-},
+}
+]
+
+
+inquirer.prompt(questions)
+  .then(data => {
+    const markdownContent = `
+## Description
+${data.build}
+${data.motivation}
+${data.problem}
+${data.learn}
+${data.standOut}
+
+## Installation
+${data.installation}
+
+## Usage
+${data.usage}
+
+## Credits
+${data.credits}
+
+## License
+${data.license}
+
+## Badges
+${data.badges}
+
+## Features
+${data.features}
+
+## How to Contribute
+${data.howToContribute}
+
+## Tests
+${data.tests}
+`;
 
 
 
-
-
-
-
-
-
-
-];
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err) => {
+    fs.writeFile('GeneratedREADME.md', markdownContent, err => {
         if (err) {
-            console.error(err)
-            return
+        console.error(err);
+        } else {
+        console.log('README file created: GeneratedREADME.md');
         }
-        console.log('Successfully generated ${fileName}');
-    })
-    }
+
+    });
+
+})
+
 
 // TODO: Create a function to initialize app
-function init() {
-   inquirer.prompt(questions)
-   .then(function (userInput){
-      console.log(userInput)
-     writeToFile('README.md', generateMarkdown(userInput));
-   })
-}
+function init() {}
 
 // Function call to initialize app
 init();
