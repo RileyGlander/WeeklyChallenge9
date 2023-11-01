@@ -30,10 +30,3 @@ Xpert Learning Assistant. (2023). Full Stack Application Development Course Disc
 ## License
 N/A
 
-
-
-## How to Contribute
-
-
-## Tests
-
